@@ -11,6 +11,10 @@
             display: flex;
             align-items: center;
             font-size: 18px;
+
+            .flag {
+                width: 25px;
+            }
         }
 
         .left {
@@ -43,7 +47,7 @@
                         width: 20px;
                         height: 20px;
                         border-radius: 50%;
-                        background-color: rgb(255, 0, 0);
+                        background-color: rgb(36, 154, 63);
                         color: white;
                         position: absolute;
                         right: -10px;
@@ -60,6 +64,3 @@
     
 }
 
-.flag {
-    width: 25px;
-}
