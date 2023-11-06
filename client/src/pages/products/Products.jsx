@@ -8,7 +8,7 @@ const Products = () => {
 
   const catId = parseInt(useParams().id);
   const [maxPrice, setMaxPrice] = useState(1000);
-  const [sort, setSort] = useState(null);
+  const [sort, setSort] = useState('asc');
   const [selectedSubCategories, setSelectedSubCategories] = useState([])
 
   const {data,loading,error} = useFetch(`/sub-categories?[filters][categories][id][$eq]=${catId}`)
@@ -43,7 +43,7 @@ const Products = () => {
           <h2>Filter by price</h2>
             <div className="inputItem">
               <span>0</span>
-              <input type="range" min={0} max={10000} onChange={(e) => setMaxPrice(e.target.value)}/>
+              <input type="range" min={0} max={1000} onChange={(e) => setMaxPrice(e.target.value)}/>
               <span>{maxPrice}</span>
             </div>
         </div>
@@ -63,7 +63,7 @@ const Products = () => {
 
       <div className="right">
         <img className='catImg' src="https://wallpaperaccess.com/full/2044892.jpg" alt="" />
-        <List subCategories={selectedSubCategories} catId={catId} maxPrice={maxPrice} sort={sort}/>
+        <List subCats={selectedSubCategories} catId={catId} maxPrice={maxPrice} sort={sort}/>
       </div>
     </div>
   )
