@@ -21,6 +21,7 @@ const useFetch = (url) => {
         fetchData()
     }, [url])
 
+    window.scrollTo(0, 0)
     return { data, loading, error }
 }
 

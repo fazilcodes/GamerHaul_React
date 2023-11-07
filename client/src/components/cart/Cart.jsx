@@ -1,55 +1,46 @@
 import React from 'react'
 import "./cart.scss"
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined"
+import { useSelector } from 'react-redux'
+import { removeItem, resetCart } from '../../redux/CartReducer'
+import { useDispatch } from 'react-redux';
 
 const Cart = () => {
   
-    const data = [
-        {
-            id: 1,
-            img: "https://c4.wallpaperflare.com/wallpaper/844/66/451/tom-clancy-s-ghost-recon-wildlands-video-games-tom-clancy-s-ghost-recon-wallpaper-preview.jpg",
-            img2: "https://c4.wallpaperflare.com/wallpaper/603/285/84/ghost-recon-video-games-tactical-special-forces-wallpaper-preview.jpg",
-            title: "Ghost Recon",
-            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, id.",
-            isNew: true,
-            oldPrice: 99,
-            price: 69,
-        },
+  const products = useSelector(state => state.cart.products)
+  const dispatch = useDispatch()
+  
+  const totalPrice = () => {
+    let total = 0;
+    products.forEach(item => {
+        total += item.quantity * item.price
+    });
 
-        {
-            id: 2,
-            img: "https://c4.wallpaperflare.com/wallpaper/609/494/462/steve-minecraft-hd-wallpaper-preview.jpg",
-            img2: "https://c4.wallpaperflare.com/wallpaper/137/602/354/video-game-minecraft-mojang-steve-minecraft-wallpaper-preview.jpg",
-            title: "Minecraft",
-            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, id.",
-            isNew: false,
-            oldPrice: 75,
-            price: 52,
-        },
-    ]  
+    return total.toFixed(2);
+  }
 
   return (
     <div className='cart'>
         <h1>Your cart items</h1>
-        {data?.map(item => (
+        {products?.map(item => (
             <div className="item" key={item.id}>
                 <img src={item.img} alt="" />
                 <div className="details">
                     <h1>{item.title}</h1>
                     <p>{item.desc.substring(0, 100)}</p>
                     <div className="price">
-                        1 x ${item.price}
+                        {item.quantity} x ${item.price}
                     </div>
                 </div>
-                <DeleteOutlinedIcon className='delete'/>
+                <DeleteOutlinedIcon className='delete' onClick={() => dispatch(removeItem(item.id))}/>
             </div>
         ))}
         <div className="total">
             <span>SUBTOTAL</span>
-            <span>$341</span>
+            <span>${totalPrice()}</span>
         </div>
         <button>CHECKOUT</button>
-        <span className='reset'>Reset Cart</span>
+        <span className='reset' onClick={()=> dispatch(resetCart())}>Reset Cart</span>
     </div>
   )
 }

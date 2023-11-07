@@ -25,7 +25,7 @@
 
             img {
                 width: 100%;
-                height: 600px;
+                height: 450px;
                 object-fit: cover;
             }
         }
@@ -35,10 +35,10 @@
         flex: 1;
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 10px;
 
         .price {
-            font-size: 30px;
+            font-size: 20px;
             color: rgb(36, 154, 63);
             font-weight: 500;
         }
