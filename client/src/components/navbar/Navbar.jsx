@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux';
 const Navbar = () => {
 
   const [openCart, setOpenCart] = useState(false)
+  const [showmenu, setShowMenu] = useState(false)
   const products = useSelector(state => state.cart.products)
 
   return (
@@ -26,14 +27,14 @@ const Navbar = () => {
             <span>INR</span>
             <KeyboardArrowDownIcon />
           </div>
-          <div className="item">
-            <Link className='link' to="/products/1">Action</Link>
+          <div className="item cats">
+            <Link className='link' to="/products/4">Action</Link>
           </div>
-          <div className="item">
-            <Link className='link' to="/products/1">Adventure</Link>
+          <div className="item cats">
+            <Link className='link' to="/products/5">Adventure</Link>
           </div>
-          <div className="item">
-            <Link className='link' to="/products/1">Sports</Link>
+          <div className="item cats">
+            <Link className='link' to="/products/3">Sports</Link>
           </div>
         </div>
 
@@ -41,7 +42,7 @@ const Navbar = () => {
           <Link className='link' to="/">GAMERHAUL</Link>
         </div>
 
-        <div className="right">
+        <div className={`${showmenu? 'right active': 'right' }`}>
           <div className="item">
             <Link className='link' to="/">Home</Link>
           </div>
@@ -63,6 +64,10 @@ const Navbar = () => {
               <span>{products.length}</span>
             </div>
           </div>
+        </div>
+        <div className={`${showmenu? 'show_menu animate-toggle' : 'show_menu'}`} onClick={() => setShowMenu(!showmenu)}>
+          <span></span>
+          <span></span>
         </div>
       </div>
       {openCart && <Cart />}

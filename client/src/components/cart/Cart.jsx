@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./cart.scss"
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined"
 import { useSelector } from 'react-redux'
@@ -9,6 +9,7 @@ import { makeRequest } from '../../makeRequest'
 
 const Cart = () => {
   
+  const [showCart, setShowCart] = useState(true)
   const products = useSelector(state => state.cart.products)
   const dispatch = useDispatch()
   
@@ -40,8 +41,14 @@ const Cart = () => {
   }
 
   return (
-    <div className='cart'>
-        <h1>Your cart items</h1>
+    <div className={`${showCart? 'cart': 'inactive'}`}>
+        <div className='ooo'>
+            <h1>Your cart items</h1>
+            <div className="close" onClick={() => setShowCart(false)}>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
         {products?.map(item => (
             <div className="item" key={item.id}>
                 <img src={item.img} alt="" />

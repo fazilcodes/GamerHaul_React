@@ -1,0 +1,55 @@
+
+@media screen and (max-width: 1080px) {
+  
+    /* Navbar */
+    .navbar .wrapper .right {
+        flex-direction: column;
+        position: absolute;
+        top: -260px;
+        right: 0px;
+        background-color: rgb(36, 154, 63);
+        padding: 20px 10px;
+        width: 25%;
+        color: white;
+        transition: all .5s ease-in;
+        z-index: 10;
+    }
+
+    .navbar .wrapper .active {
+        top: 85px;
+    }
+
+    .navbar .wrapper .right .icons {
+        color: white;
+    }
+
+    .navbar .wrapper .show_menu {
+        display: flex;
+    }
+
+    .navbar .wrapper .cats {
+        display: none;
+    }
+
+    /* Home Slider */
+    .slider .container img {
+        object-fit: cover;
+    }
+
+    /* categories */
+    .categories {
+        height: 50vh;
+    }
+
+    /* contact */
+    .contact .wrapper{
+        width: 80%;
+    }
+
+    /* cart */
+    .cart {
+        top: 280px;
+        right: 290px;
+    }
+
+}
