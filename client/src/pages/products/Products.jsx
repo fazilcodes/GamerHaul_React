@@ -11,7 +11,9 @@ const Products = () => {
   const [sort, setSort] = useState('asc');
   const [selectedSubCategories, setSelectedSubCategories] = useState([])
 
-  const {data,loading,error} = useFetch(`/sub-categories?[filters][categories][id][$eq]=${catId}`)
+  const {data,loading,error} = useFetch(`/sub-categories?populate=*`)
+  const category = useFetch(`/categories/${catId}?populate=*`)
+  console.log(category);
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -28,6 +30,7 @@ const Products = () => {
 
   return (
     <div className='products'>
+      
       <div className="left">
         <div className="filterItem">
           <h2>Product Categories</h2>
@@ -62,7 +65,7 @@ const Products = () => {
       </div>
 
       <div className="right">
-        <img className='catImg' src="https://wallpaperaccess.com/full/2044892.jpg" alt="" />
+        <img className='catImg' src={import.meta.env.VITE_REACT_APP_UPLOAD_URL +category.data?.attributes?.img?.data?.attributes?.url} alt="" />
         <List subCats={selectedSubCategories} catId={catId} maxPrice={maxPrice} sort={sort}/>
       </div>
     </div>
