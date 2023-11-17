@@ -3,9 +3,11 @@
 
     .top {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         margin-bottom: 50px;
+        flex-wrap: wrap;
+        gap: 10px;
 
         h1 {
             flex: 2;
@@ -22,5 +24,6 @@
         display: flex;
         justify-content: center;
         gap: 50px;
+        flex-wrap: wrap;
     }
 }

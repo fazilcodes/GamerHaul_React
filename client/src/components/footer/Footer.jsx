@@ -25,13 +25,13 @@ const Footer = () => {
         <div className="item">
           <h1>About</h1>
           <span>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis qui quidem doloribus vitae facere ducimus maxime culpa perferendis illum eos ullam quas omnis sint, voluptatem molestiae! Recusandae cum autem voluptate!
+            This is a test project done by Fazilcodes with both frontend and backend Technology. 
           </span>
         </div>
 
         <div className="item">
           <h1>Contact</h1>
-          <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse perferendis, quos itaque iste fuga nisi doloremque quod fugiat, id deleniti voluptas, nesciunt maiores placeat consectetur vel necessitatibus repellendus consequuntur cupiditate.</span>
+          <span>fazilthekkan01@gmail.com</span>
         </div>
       </div>
 
